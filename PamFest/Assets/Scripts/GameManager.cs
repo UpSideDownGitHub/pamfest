@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,6 +50,15 @@ public class GameManager : MonoBehaviour
                 if (!winners.Contains(players[i]))
                 {
                     winners.Add(players[i]);
+                    print(winners[winners.Count - 1]);
+                    print(winners[winners.Count - 2]);
+                    print(winners[winners.Count - 3]);
+                    PlayerPrefs.SetInt("First Place", winners[winners.Count - 1].gamepadID);
+                    PlayerPrefs.SetInt("Second Place", winners[winners.Count - 2].gamepadID);
+                    PlayerPrefs.SetInt("Third Place", winners[winners.Count - 3].gamepadID);
+
+                    // load the end scene
+                    SceneManager.LoadScene(1);
                     break;
                 }
             }
