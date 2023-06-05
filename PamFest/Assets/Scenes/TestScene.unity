@@ -172,6 +172,7 @@ MonoBehaviour:
   movingRight: 1
   players: []
   playersComplete: 00000000000000000000000000000000
+  winners: []
 --- !u!1 &761777029
 GameObject:
   m_ObjectHideFlags: 0
