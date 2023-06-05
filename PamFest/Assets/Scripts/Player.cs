@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
             {
                 if (GameManager.instance.movingRight)
                 {
-                    print("ID: " + gamepadID);
                     GameManager.instance.playersComplete[gamepadID] = 1;
                     rb.velocity = Vector2.zero;
                     enemyMovementManager.updatePlayers();

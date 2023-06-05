@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float waitTime;
     public GameObject endRunCanvas;
     bool endOfRound = false;
+    public string[] playerPrefsNames;
 
     private void Awake()
     {
@@ -39,39 +40,7 @@ public class GameManager : MonoBehaviour
         if (endOfRound)
             return;
 
-        // CHECK FOR THE END OF THE GAME
-        int playersLeft = players.Count;
-        for (int i = 0; i < players.Count; i++)
-        {
-            if (playersComplete[i] == 2)
-            {
-                playersLeft--;
-            }
-        }
-        if (playersLeft <= 1)
-        {
-            // end the game
-            print("Game Ended");
-            Time.timeScale = 0f;
-            for (int i = 0; i < players.Count; i++)
-            {
-                if (!winners.Contains(players[i]))
-                {
-                    winners.Add(players[i]);
-                    print(winners[winners.Count - 1]);
-                    print(winners[winners.Count - 2]);
-                    print(winners[winners.Count - 3]);
-                    PlayerPrefs.SetInt("First Place", winners[winners.Count - 1].gamepadID);
-                    PlayerPrefs.SetInt("Second Place", winners[winners.Count - 2].gamepadID);
-                    PlayerPrefs.SetInt("Third Place", winners[winners.Count - 3].gamepadID);
-
-                    // load the end scene
-                    SceneManager.LoadScene(1);
-                    break;
-                }
-            }
-        }
-
+        // check for the end of the round
         bool finishedRound = true;
         for (int i = 0; i < players.Count; i++)
         {
@@ -88,6 +57,53 @@ public class GameManager : MonoBehaviour
                 continue;
             }
             finishedRound = false;
+        }
+
+        // CHECK FOR THE END OF THE GAME
+        int playersLeft = players.Count;
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (playersComplete[i] == 2)
+            {
+                playersLeft--;
+            }
+        }
+        if (playersLeft <= 1)
+        {
+            // end the game
+            Time.timeScale = 0f;
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (!winners.Contains(players[i]))
+                {
+                    // add the last player
+                    winners.Add(players[i]);
+
+                    // save the players that where part of the game
+                    int w = 0;
+                    for (int j = 0; j < winners.Count; j++)
+                    {
+                        if (w > 2)
+                            break;
+                        //print(playerPrefsNames[j] + ": " + winners[winners.Count - j - 1].gamepadID);
+                        PlayerPrefs.SetInt(playerPrefsNames[j], winners[winners.Count - j - 1].gamepadID);
+                        w++;
+                    }
+
+                    /*
+                    print(winners[winners.Count - 1]);
+                    print(winners[winners.Count - 2]);
+                    print(winners[winners.Count - 3]);
+                    PlayerPrefs.SetInt("First Place", winners[winners.Count - 1].gamepadID);
+                    PlayerPrefs.SetInt("Second Place", winners[winners.Count - 2].gamepadID);
+                    PlayerPrefs.SetInt("Third Place", winners[winners.Count - 3].gamepadID);
+                    */
+
+                    // load the end scene
+                    SceneManager.LoadScene(1);
+                    break;
+                }
+            }
         }
         
         if (finishedRound)

@@ -14,11 +14,18 @@ public class EndScreenManager : MonoBehaviour
         int pos1 = PlayerPrefs.GetInt("First Place", -1);
         int pos2 = PlayerPrefs.GetInt("Second Place", -1);
         int pos3 = PlayerPrefs.GetInt("Third Place", -1);
-        print(pos1);
-        print(pos2);
-        print(pos3);
-        actualPlayerHeads[0].sprite = playerHeads[pos1];
-        actualPlayerHeads[1].sprite = playerHeads[pos2];
-        actualPlayerHeads[2].sprite = playerHeads[pos3];
+        
+        if (pos1 != -1)
+            actualPlayerHeads[0].sprite = playerHeads[pos1];
+        else
+            actualPlayerHeads[0].sprite = null;
+        if (pos2 != -1)
+            actualPlayerHeads[1].sprite = playerHeads[pos2];
+        else
+            actualPlayerHeads[1].sprite = null;
+        if (pos3 != -1)
+            actualPlayerHeads[2].sprite = playerHeads[pos3];
+        else
+            actualPlayerHeads[2].sprite = null;
     }
 }

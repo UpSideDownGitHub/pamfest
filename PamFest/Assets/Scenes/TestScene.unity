@@ -175,6 +175,10 @@ MonoBehaviour:
   winners: []
   waitTime: 2
   endRunCanvas: {fileID: 805124215}
+  playerPrefsNames:
+  - First Place
+  - Second Place
+  - Third Place
 --- !u!1 &576711046
 GameObject:
   m_ObjectHideFlags: 0
