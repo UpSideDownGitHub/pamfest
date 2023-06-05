@@ -29,5 +29,6 @@ public class PlayerSelection : MonoBehaviour
     public void confirm()
     {
         PlayerPrefs.SetInt("Player " + currentControllerID.ToString(), currentPlayer);
+        PlayerSelectManager.instance.confirmed[currentControllerID] = true;
     }
 }

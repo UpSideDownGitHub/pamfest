@@ -986,11 +986,11 @@ MonoBehaviour:
   - P2
   - P3
   - P4
-  colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.40936995, b: 1, a: 1}
-  - {r: 1, g: 0.9584457, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0.8268976, a: 1}
+  players:
+  - {fileID: 21300000, guid: a90737a7e88e2944bbb9683a83c5eff3, type: 3}
+  - {fileID: 21300000, guid: f7f03d57aa42d034294c41b493ca675f, type: 3}
+  - {fileID: 21300000, guid: 97ecb364ed91ab049ba7940084b7616b, type: 3}
+  - {fileID: 21300000, guid: a11278cdc7eae7f47910b6707b3ce83b, type: 3}
 --- !u!4 &1125553837
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     public Vector3[] spawnPositions;
     public GameObject playerPrefab;
     public string[] names;
-    public Color[] colors;
+    public Sprite[] players;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +19,9 @@ public class PlayerManager : MonoBehaviour
             temp.gameObject.transform.position = spawnPositions[i];
             GameManager.instance.players.Add(temp.gameObject.GetComponent<Player>());
             temp.gameObject.name = names[i];
-            temp.gameObject.GetComponent<SpriteRenderer>().color = colors[i];
+
+            // set the sprite to the selected sprite
+            temp.gameObject.GetComponent<SpriteRenderer>().sprite = players[PlayerPrefs.GetInt("Player " + i, 0)];
         }
 
         /*
