@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 7553077912206042177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -150,6 +150,9 @@ MonoBehaviour:
   rb: {fileID: 7553077912206042183}
   movementSpeed: 25
   smoothValue: 0.3
+  playerMovementEnabled: 1
+  gamepadID: 0
+  currentInput: {fileID: 0}
 --- !u!50 &7553077912206042183
 Rigidbody2D:
   serializedVersion: 4
