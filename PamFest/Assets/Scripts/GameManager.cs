@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    [Header("End Of Round")]
+    public float waitTime;
+    public GameObject endRunCanvas;
+    bool endOfRound = false;
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +36,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (endOfRound)
+            return;
+
         // CHECK FOR THE END OF THE GAME
         int playersLeft = players.Count;
         for (int i = 0; i < players.Count; i++)
@@ -64,8 +72,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
-
         bool finishedRound = true;
         for (int i = 0; i < players.Count; i++)
         {
@@ -87,17 +93,27 @@ public class GameManager : MonoBehaviour
         if (finishedRound)
         {
             movingRight = !movingRight;
-            // do end of round things
+            
+            // End of the round
+            StartCoroutine(endRound());
+        }
+    }
 
-            // re-enable the player movement if they can move
-            for (int i = 0; i < players.Count; i++)
+    public IEnumerator endRound()
+    {
+        endOfRound = true;
+        endRunCanvas.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        endRunCanvas.SetActive(false);
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (playersComplete[i] < 2)
             {
-                if (playersComplete[i] < 2)
-                {
-                    playersComplete[i] = 0;
-                    players[i].playerMovementEnabled = true;
-                }
+                playersComplete[i] = 0;
+                players[i].playerMovementEnabled = true;
             }
         }
+        endOfRound = false;
     }
 }
