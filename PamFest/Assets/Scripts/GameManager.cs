@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour
     public float waitTime;
     public GameObject endRunCanvas;
     bool endOfRound = false;
+
+    [Header("End Of Game")]
     public string[] playerPrefsNames;
+
 
     private void Awake()
     {
@@ -89,27 +92,17 @@ public class GameManager : MonoBehaviour
                         PlayerPrefs.SetInt(playerPrefsNames[j], winners[winners.Count - j - 1].gamepadID);
                         w++;
                     }
-
-                    /*
-                    print(winners[winners.Count - 1]);
-                    print(winners[winners.Count - 2]);
-                    print(winners[winners.Count - 3]);
-                    PlayerPrefs.SetInt("First Place", winners[winners.Count - 1].gamepadID);
-                    PlayerPrefs.SetInt("Second Place", winners[winners.Count - 2].gamepadID);
-                    PlayerPrefs.SetInt("Third Place", winners[winners.Count - 3].gamepadID);
-                    */
-
-                    // load the end scene
+                    // RUN END GAME SEQUENCE
                     SceneManager.LoadScene(1);
                     break;
                 }
             }
         }
-        
+
         if (finishedRound)
         {
             movingRight = !movingRight;
-            
+
             // End of the round
             StartCoroutine(endRound());
         }
@@ -121,7 +114,6 @@ public class GameManager : MonoBehaviour
         endRunCanvas.SetActive(true);
         yield return new WaitForSeconds(waitTime);
         endRunCanvas.SetActive(false);
-
         for (int i = 0; i < players.Count; i++)
         {
             if (playersComplete[i] < 2)
