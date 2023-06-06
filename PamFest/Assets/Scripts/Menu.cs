@@ -9,7 +9,14 @@ public class Menu : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+
+        StartCoroutine(SFXComp());
+
+        IEnumerator SFXComp()
+        {
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
         public void QuitDaGame()

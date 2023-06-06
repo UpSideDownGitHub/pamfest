@@ -12,6 +12,9 @@ public class PlayerSelection : MonoBehaviour
     public int currentPlayer = 0;
     public int currentControllerID;
 
+    public GameObject playerBody;
+    public GameObject playerHead;
+
     public void Awake()
     {
         totalPlayers = players.Length;
@@ -46,5 +49,8 @@ public class PlayerSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("Player " + currentControllerID.ToString(), currentPlayer);
         PlayerSelectManager.instance.confirmed[currentControllerID] = true;
+
+        playerBody.GetComponent<Animator>().SetTrigger("Selected");
+        playerHead.GetComponent<Animator>().SetTrigger("Selected");
     }
 }
