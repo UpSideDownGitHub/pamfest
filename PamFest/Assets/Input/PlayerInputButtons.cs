@@ -50,6 +50,96 @@ public partial class @PlayerInputButtons : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""95ac718e-ee8d-4901-9771-83d3ed424973"",
+            ""actions"": [
+                {
+                    ""name"": ""D-Pad Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""55f80a4a-4352-4e71-b76d-e114076f3314"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D-Pad Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""626156c0-5cf8-4035-873d-38f75d4b84c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe77aff9-dc2e-48a4-bb8b-8acd9b66c031"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f4eaada9-d24d-4fe1-bf7c-d2657f9c64bf"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d7de8d8-96de-4118-9299-c05a1ceb7573"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5a9785d-4d31-4e07-9672-90f99719ac55"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48ce5588-2b95-4d9f-b643-d17e2f61d00c"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D-Pad Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""597022a4-4dfe-403e-9337-9cbd6a334d42"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -57,6 +147,11 @@ public partial class @PlayerInputButtons : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_DPadLeft = m_UI.FindAction("D-Pad Left", throwIfNotFound: true);
+        m_UI_DPadRight = m_UI.FindAction("D-Pad Right", throwIfNotFound: true);
+        m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -145,8 +240,63 @@ public partial class @PlayerInputButtons : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_DPadLeft;
+    private readonly InputAction m_UI_DPadRight;
+    private readonly InputAction m_UI_Confirm;
+    public struct UIActions
+    {
+        private @PlayerInputButtons m_Wrapper;
+        public UIActions(@PlayerInputButtons wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DPadLeft => m_Wrapper.m_UI_DPadLeft;
+        public InputAction @DPadRight => m_Wrapper.m_UI_DPadRight;
+        public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @DPadLeft.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadLeft;
+                @DPadLeft.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadLeft;
+                @DPadRight.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadRight;
+                @DPadRight.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadRight;
+                @DPadRight.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDPadRight;
+                @Confirm.started -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @DPadLeft.started += instance.OnDPadLeft;
+                @DPadLeft.performed += instance.OnDPadLeft;
+                @DPadLeft.canceled += instance.OnDPadLeft;
+                @DPadRight.started += instance.OnDPadRight;
+                @DPadRight.performed += instance.OnDPadRight;
+                @DPadRight.canceled += instance.OnDPadRight;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnDPadLeft(InputAction.CallbackContext context);
+        void OnDPadRight(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }

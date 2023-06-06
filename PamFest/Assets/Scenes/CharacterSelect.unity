@@ -169,14 +169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSelectPanels:
   - {fileID: 8901135381532759380, guid: ef8b04678e6ba194fa8aa20b1c7f7838, type: 3}
-  - {fileID: 6580419775931957810, guid: 23a8ab4d5ae43384d8dc222b1433eede, type: 3}
-  - {fileID: 2078060075775043363, guid: a0aaf024c9c4c8845add2807b4d84f4b, type: 3}
-  - {fileID: 2828409625320258596, guid: cfebf97472ae1ee4185576453d1e422e, type: 3}
+  - {fileID: 8901135381532759380, guid: 2b868a0d8d9dc6342826b69f33205857, type: 3}
+  - {fileID: 8901135381532759380, guid: 58d0c9361378c8a4eb156816cd2a4c2c, type: 3}
+  - {fileID: 8901135381532759380, guid: ecbd2700725ee7b42aa627bcaf353f79, type: 3}
   names:
   - P1 Selection
   - P2 Selection
   - P3 Selection
   - P4 Selection
+  confirmed: 
 --- !u!1 &1885063491
 GameObject:
   m_ObjectHideFlags: 0
