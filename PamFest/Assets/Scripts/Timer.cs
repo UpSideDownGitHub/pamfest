@@ -51,6 +51,7 @@ public class Timer : MonoBehaviour
 
     public void stopTimer()
     {
+        timerText.text = "00:10";
         startTime = Time.time;
         run = false;
     }

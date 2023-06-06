@@ -163,6 +163,9 @@ MonoBehaviour:
   movementSpeed: 25
   smoothValue: 0.3
   playerMovementEnabled: 1
+  playerMovementDisabled: 0
+  disableTime: 0.5
+  particleSystems: {fileID: 3177476700465657369, guid: 7e25275e137ed054a87e50a17a5eb3cd, type: 3}
   enemyMovementManager: {fileID: 0}
   gamepadID: 0
 --- !u!50 &7553077912206042183

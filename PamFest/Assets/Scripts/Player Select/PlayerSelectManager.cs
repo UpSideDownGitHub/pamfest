@@ -13,6 +13,8 @@ public class PlayerSelectManager : MonoBehaviour
     public List<bool> confirmed = new List<bool>();
 
     public static PlayerSelectManager instance;
+
+    public AudioSource SelectSFX;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +27,7 @@ public class PlayerSelectManager : MonoBehaviour
             var temp = PlayerInput.Instantiate(playerSelectPanels[i], 0, null, -1, pairWithDevice: Gamepad.all[i]);
             temp.gameObject.name = names[i];
             confirmed.Add(false);
+    
         }
     }
 
@@ -35,6 +38,14 @@ public class PlayerSelectManager : MonoBehaviour
             if (!confirmed[i])
                 return;
         }
-        SceneManager.LoadScene(1);
+
+        StartCoroutine (AfterSelect());
+
+        IEnumerator AfterSelect()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("Loading");
+        }
+        
     }
 }

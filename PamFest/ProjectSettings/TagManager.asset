@@ -8,6 +8,8 @@ TagManager:
   - Right
   - Enemy
   - EnemyManager
+  - Bullet
+  - cone
   layers:
   - Default
   - TransparentFX
