@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 if (!GameManager.instance.movingRight)
                 {
                     GameManager.instance.playersComplete[gamepadID] = 1;
-                    GameManager.instance.playerCrossedLine();
+                    GameManager.instance.playerCrossedLine(gamepadID);
                     rb.velocity = Vector2.zero;
                     enemyMovementManager.updatePlayers();
                 }
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
                 if (GameManager.instance.movingRight)
                 {
                     GameManager.instance.playersComplete[gamepadID] = 1;
-                    GameManager.instance.playerCrossedLine();
+                    GameManager.instance.playerCrossedLine(gamepadID);
                     rb.velocity = Vector2.zero;
                     enemyMovementManager.updatePlayers();
                 }

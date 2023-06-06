@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
     [Header("End Of Game")]
     public string[] playerPrefsNames;
 
+    [Header("Score")]
+    public GameObject[] scoreObjects;
+    public TMP_Text[] scoreTexts;
+    public int[] scores = new int[4];
+
 	public AudioSource source;
 
 
@@ -43,6 +49,9 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].gamepadID = i;
+            scoreObjects[i].SetActive(true);
+            scoreTexts[i].text = "0";
+            scores[i] = 0;
         }
     }
 
@@ -61,8 +70,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void playerCrossedLine()
+    public void playerCrossedLine(int ID)
     {
+        scoreTexts[ID].text = (++scores[ID]).ToString();
         if (!playerFinished)
         {
             timer.startTimer();
