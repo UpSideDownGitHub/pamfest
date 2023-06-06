@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] scoreObjects;
     public TMP_Text[] scoreTexts;
     public int[] scores = new int[4];
+    public ParticleSystem[] crossedLineParticles;
 
 	public AudioSource source;
 
@@ -73,6 +74,12 @@ public class GameManager : MonoBehaviour
     public void playerCrossedLine(int ID)
     {
         scoreTexts[ID].text = (++scores[ID]).ToString();
+
+        if (movingRight)
+            crossedLineParticles[0].Play();
+        else
+            crossedLineParticles[1].Play();
+
         if (!playerFinished)
         {
             timer.startTimer();
@@ -125,22 +132,20 @@ public class GameManager : MonoBehaviour
                 {
                     // add the last player
                     winners.Add(players[i]);
-
-                    // save the players that where part of the game
-                    int w = 0;
-                    for (int j = 0; j < winners.Count; j++)
-                    {
-                        if (w > 2)
-                            break;
-                        //print(playerPrefsNames[j] + ": " + winners[winners.Count - j - 1].gamepadID);
-                        PlayerPrefs.SetInt(playerPrefsNames[j], winners[winners.Count - j - 1].gamepadID);
-                        w++;
-                    }
-                    // RUN END GAME SEQUENCE
-                    SceneManager.LoadScene("EndScreen");
-                    break;
                 }
             }
+            // save the players that where part of the game
+            int w = 0;
+            for (int j = 0; j < winners.Count; j++)
+            {
+                if (w > 2)
+                    break;
+                //print(playerPrefsNames[j] + ": " + winners[winners.Count - j - 1].gamepadID);
+                PlayerPrefs.SetInt(playerPrefsNames[j], winners[winners.Count - j - 1].gamepadID);
+                w++;
+            }
+            // RUN END GAME SEQUENCE
+            SceneManager.LoadScene("EndScreen");
         }
 
         if (finishedRound)
