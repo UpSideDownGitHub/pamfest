@@ -14,8 +14,6 @@ public class PlayerSelectManager : MonoBehaviour
 
     public static PlayerSelectManager instance;
 
-    public AudioSource SelectSFX;
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;

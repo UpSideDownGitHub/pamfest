@@ -1094,11 +1094,7 @@ MonoBehaviour:
   currentControllerID: 0
   playerBody: {fileID: 1450816990690390874}
   playerHead: {fileID: 5311515053703874259}
-  AlexSFX: {fileID: 0}
-  JamesSFX: {fileID: 0}
-  KaydeSFX: {fileID: 0}
-  LewisSFX: {fileID: 0}
-  SelectSFX: {fileID: 8229447859078916939, guid: f94ccccb7ed883741a2b8e8b21a17903, type: 3}
+  audioManager: {fileID: 3828360336519999417}
 --- !u!1001 &5122226962982978801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1156,6 +1152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f94ccccb7ed883741a2b8e8b21a17903, type: 3}
+--- !u!1 &3828360336519999417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8229447859078916936, guid: f94ccccb7ed883741a2b8e8b21a17903, type: 3}
+  m_PrefabInstance: {fileID: 5122226962982978801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &3828360336519999418 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8229447859078916939, guid: f94ccccb7ed883741a2b8e8b21a17903, type: 3}
