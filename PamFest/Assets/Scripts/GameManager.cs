@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public EnemyMovementManager enemyMovementManager;
+    public ConeManager coneManager;
 
     [Header("Timer")]
     public Timer timer;
@@ -130,6 +131,8 @@ public class GameManager : MonoBehaviour
         {
             movingRight = !movingRight;
 
+            // remove old cones
+            coneManager.removeOldCones();
             // End of the round
             StartCoroutine(endRound());
         }
@@ -156,6 +159,11 @@ public class GameManager : MonoBehaviour
         // update the enemy to target the new players
         enemyMovementManager.updatePlayers();
         enemyMovementManager.enableEnemies();
+
+        // add new cones
+        coneManager.increaseConeAmmount();
+        coneManager.spawnCones();
+
         endOfRound = false;
     }
 }

@@ -301,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113422900}
   - component: {fileID: 113422901}
+  - component: {fileID: 113422902}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -342,6 +343,7 @@ MonoBehaviour:
   playersComplete: 00000000000000000000000000000000
   winners: []
   enemyMovementManager: {fileID: 2102299355}
+  coneManager: {fileID: 113422902}
   timer: {fileID: 373002171}
   playerFinished: 0
   waitTime: 2
@@ -350,6 +352,24 @@ MonoBehaviour:
   - First Place
   - Second Place
   - Third Place
+--- !u!114 &113422902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113422899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c398ec607c353439ba83ae1ea395ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cone: {fileID: 8159547195508616541, guid: dc483367fff36514dac0d88a0997dfa5, type: 3}
+  ammountOfCones: 0
+  coneIncreaseRate: 1
+  coneAreaMin: {x: -9.25, y: -5}
+  coneAreaMax: {x: 9.25, y: 5}
+  spawnedCones: []
 --- !u!1 &199729151
 GameObject:
   m_ObjectHideFlags: 0

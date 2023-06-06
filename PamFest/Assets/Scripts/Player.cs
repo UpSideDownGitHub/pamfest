@@ -12,6 +12,12 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     public float smoothValue;
     public bool playerMovementEnabled;
+    public bool playerMovementDisabled;
+
+    [Header("Cone Death")]
+    public float disableTime;
+    private float timeSinceDisable;
+    public GameObject particleSystems;
 
     [Header("Enemyness")]
     public EnemyMovementManager enemyMovementManager;
@@ -29,7 +35,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (playerMovementEnabled)
+        if (playerMovementDisabled && Time.time > disableTime + timeSinceDisable)
+        {
+            playerMovementDisabled = false;
+        }
+        if (playerMovementEnabled && !playerMovementDisabled)
         {
             if (_vec2 != Vector2.zero)
             {
@@ -40,6 +50,18 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
             }
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("cone"))
+        {
+            playerMovementDisabled = true;
+            rb.velocity = Vector2.zero;
+            timeSinceDisable = Time.time;
+            Instantiate(particleSystems, collision.gameObject.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
         }
     }
 
