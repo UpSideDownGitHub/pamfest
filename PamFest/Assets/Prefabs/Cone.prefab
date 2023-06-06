@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1203083181469788447}
   - component: {fileID: 1706445029036797083}
   - component: {fileID: 6961099254769382079}
-  - component: {fileID: 6655471538793079528}
   m_Layer: 0
   m_Name: Cone
   m_TagString: cone
@@ -112,16 +111,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1743316, y: 0.1688894}
   m_EdgeRadius: 0
---- !u!114 &6655471538793079528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8159547195508616541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a9460ef79229948915a6671e98e327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystems: {fileID: 3177476700465657369, guid: 7e25275e137ed054a87e50a17a5eb3cd, type: 3}

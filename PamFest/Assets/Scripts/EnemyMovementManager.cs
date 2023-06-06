@@ -1,6 +1,8 @@
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,10 +19,21 @@ public class EnemyMovementManager : MonoBehaviour
 
     public bool canEnemy = true;
 
+    [Header("More Advanced AI")]
+    public float minDistanceToDemandFollow;
+    public float speedIncreaseTime;
+    public float baseSpeed;
+    public float baseAccel;
+    public float speedMultiplier;
+    public float accelMultiplier;
+
+
     private void Start()
     {
         enemyAgents[0].updateRotation = false;
         enemyAgents[0].updateUpAxis = false;
+        baseSpeed = enemyAgents[0].speed;
+        baseAccel = enemyAgents[0].acceleration;
         for (int i = 0; i < GameManager.instance.players.Count; i++)
         {
             players.Add(GameManager.instance.players[i].gameObject);
@@ -51,6 +64,7 @@ public class EnemyMovementManager : MonoBehaviour
             }
             catch
             {
+                StartCoroutine(increaseSpeed(i));
                 timers[i] = Time.time;
                 playerToFollowID[i] = Random.Range(0, players.Count);
             }
@@ -58,12 +72,42 @@ public class EnemyMovementManager : MonoBehaviour
         }
     }
 
+    public int findClosestPlayer()
+    {
+        GameObject closestPlayer = null;
+        float closestDistance = 999;
+        foreach (var item in players)
+        {
+            var dist = Vector3.Distance(item.transform.position, transform.position);
+            if (dist < minDistanceToDemandFollow && dist < closestDistance)
+            {
+                closestPlayer = item;
+                closestDistance = dist;
+            }
+        }
+        if (closestPlayer != null)
+        {
+            // target this player
+            return players.IndexOf(closestPlayer);
+        }
+        return -1;
+    }
+
     public void updateFollowTargets()
     {
         for (int i = 0; i < enemyAgents.Count; i++)
         {
+            var toFollow = findClosestPlayer();
+            if (toFollow > -1)
+            {
+                // mover to this player rather than finding a player at random
+                StartCoroutine(increaseSpeed(i));
+                timers[i] = Time.time;
+                playerToFollowID[i] = toFollow;
+            }
             if (Time.time > timers[i] + timeToAbandonHunt)
             {
+                StartCoroutine(increaseSpeed(i));
                 timers[i] = Time.time;
                 playerToFollowID[i] = Random.Range(0, players.Count);
             }
@@ -105,5 +149,14 @@ public class EnemyMovementManager : MonoBehaviour
         {
             enemyAgents[i].isStopped = false;
         }
+    }
+
+    IEnumerator increaseSpeed(int ID)
+    {
+        enemyAgents[ID].speed = baseSpeed * speedMultiplier;
+        enemyAgents[ID].acceleration = baseAccel * accelMultiplier;
+        yield return new WaitForSeconds(speedIncreaseTime);
+        enemyAgents[ID].speed = baseSpeed;
+        enemyAgents[ID].acceleration = baseAccel;
     }
 }

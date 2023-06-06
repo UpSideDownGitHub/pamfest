@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
             if (playersComplete[i] == 0)
             {
                 playersComplete[i] = 2;
+                players[i].rb.velocity = Vector2.zero;
+                players[i].GetComponent<SpriteRenderer>().color = Color.green;
+                enemyMovementManager.addNewEnemy(players[i].gameObject);
+                players[i].gameObject.tag = "Enemy";
             }
         }
     }

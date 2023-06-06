@@ -2247,7 +2247,7 @@ GameObject:
   - component: {fileID: 1125553837}
   - component: {fileID: 1125553836}
   m_Layer: 0
-  m_Name: Player Spawner
+  m_Name: Player Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4250,6 +4250,12 @@ MonoBehaviour:
   timeToAbandonHunt: 3
   players: []
   canEnemy: 1
+  minDistanceToDemandFollow: 3
+  speedIncreaseTime: 0.5
+  baseSpeed: 0
+  baseAccel: 0
+  speedMultiplier: 1.5
+  accelMultiplier: 1.5
 --- !u!4 &2102299356
 Transform:
   m_ObjectHideFlags: 0
