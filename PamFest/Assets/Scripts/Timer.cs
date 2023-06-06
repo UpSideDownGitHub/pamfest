@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
 {
     public static Timer instance;
 
+    public GameObject[] objects;
+
     public bool run;
     public TMP_Text timerText;
     public float startTime;
@@ -45,12 +47,16 @@ public class Timer : MonoBehaviour
 
     public void startTimer()
     {
+        objects[0].SetActive(true);
+        objects[1].SetActive(true);
         startTime = Time.time;
         run = true;
     }
 
     public void stopTimer()
     {
+        objects[0].SetActive(false);
+        objects[1].SetActive(false);
         timerText.text = "00:10";
         startTime = Time.time;
         run = false;
