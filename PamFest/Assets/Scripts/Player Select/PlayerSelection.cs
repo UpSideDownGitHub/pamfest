@@ -15,6 +15,14 @@ public class PlayerSelection : MonoBehaviour
     public GameObject playerBody;
     public GameObject playerHead;
 
+    public AudioSource AlexSFX;
+    public AudioSource JamesSFX;
+    public AudioSource KaydeSFX;
+    public AudioSource LewisSFX;
+
+    public AudioSource SelectSFX;
+
+
     public void Awake()
     {
         totalPlayers = players.Length;
@@ -49,7 +57,7 @@ public class PlayerSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("Player " + currentControllerID.ToString(), currentPlayer);
         PlayerSelectManager.instance.confirmed[currentControllerID] = true;
-
+        
         playerBody.GetComponent<Animator>().SetTrigger("Selected");
         playerHead.GetComponent<Animator>().SetTrigger("Selected");
     }

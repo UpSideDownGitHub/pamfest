@@ -10,9 +10,6 @@ public class LoadMainMenu : MonoBehaviour
     {
         StartCoroutine(EndDone());
 
-
-
-
         IEnumerator EndDone()
         {
             yield return new WaitForSeconds(7.5f);
