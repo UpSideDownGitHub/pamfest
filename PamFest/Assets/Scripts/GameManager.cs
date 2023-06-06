@@ -140,8 +140,8 @@ public class GameManager : MonoBehaviour
         endOfRound = true;
         endRunCanvas.SetActive(true);
         enemyMovementManager.canEnemy = false;
-        yield return new WaitForSeconds(waitTime);
         timer.stopTimer();
+        yield return new WaitForSeconds(waitTime);
         enemyMovementManager.canEnemy = true;
         playerFinished = false;
         endRunCanvas.SetActive(false);
