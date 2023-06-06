@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ANimEnd : MonoBehaviour
 {
+    public GameObject MenuPOP;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine (AnimOver());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator AnimOver()
     {
-        
+        yield return new WaitForSeconds(5f);
+        MenuPOP.SetActive(true);
     }
+    
 }
