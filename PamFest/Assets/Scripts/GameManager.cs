@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    [Header("Timer")]
+    public Timer timer;
+    public bool playerFinished;
+
     [Header("End Of Round")]
     public float waitTime;
     public GameObject endRunCanvas;
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        playerFinished = false;
         instance = this;
     }
 
@@ -35,6 +40,27 @@ public class GameManager : MonoBehaviour
         {
             players[i].gamepadID = i;
         }
+    }
+
+    public void endRoundTime()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (playersComplete[i] == 0)
+            {
+                playersComplete[i] = 2;
+            }
+        }
+    }
+
+    public void playerCrossedLine()
+    {
+        if (!playerFinished)
+        {
+            timer.startTimer();
+            playerFinished = true;
+        }
+
     }
 
     // Update is called once per frame
@@ -113,6 +139,8 @@ public class GameManager : MonoBehaviour
         endOfRound = true;
         endRunCanvas.SetActive(true);
         yield return new WaitForSeconds(waitTime);
+        timer.stopTimer();
+        playerFinished = false;
         endRunCanvas.SetActive(false);
         for (int i = 0; i < players.Count; i++)
         {
