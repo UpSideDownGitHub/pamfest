@@ -11,7 +11,7 @@ public class EndScreenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         int pos1 = PlayerPrefs.GetInt("First Place", -1);
         int pos2 = PlayerPrefs.GetInt("Second Place", -1);
         int pos3 = PlayerPrefs.GetInt("Third Place", -1);
