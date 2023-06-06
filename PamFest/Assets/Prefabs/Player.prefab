@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vec2: {x: 0, y: 0}
   rb: {fileID: 7553077912206042183}
-  movementSpeed: 10
+  movementSpeed: 5
   smoothValue: 0.05
   playerMovementEnabled: 1
   playerMovementDisabled: 0

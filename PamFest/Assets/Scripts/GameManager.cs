@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     [Header("End Of Game")]
     public string[] playerPrefsNames;
 
+	public AudioSource source;
+
 
     private void Awake()
     {
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
         endOfRound = true;
         endRunCanvas.SetActive(true);
         enemyMovementManager.canEnemy = false;
+	    source.Play();
         timer.stopTimer();
         yield return new WaitForSeconds(waitTime);
         enemyMovementManager.canEnemy = true;
