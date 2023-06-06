@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
         {
             var temp = PlayerInput.Instantiate(playerPrefab, 0, null, -1, pairWithDevice: Gamepad.all[i]);
             temp.gameObject.transform.position = spawnPositions[i];
-            GameManager.instance.players.Add(temp.gameObject.GetComponent<Player>());
+            GameManager.instance.players.Add(temp.gameObject.GetComponent<PlayerMovement>());
             temp.gameObject.name = names[i];
 
             // set the sprite to the selected sprite

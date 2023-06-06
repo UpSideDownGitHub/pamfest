@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool movingRight = true;
-    public List<Player> players = new List<Player>();
+    public List<PlayerMovement> players = new List<PlayerMovement>();
     public int[] playersComplete = new int[4]; // 0 = Running, 1 = Completed, 2 = Eaten
-    public List<Player> winners = new List<Player>();
+    public List<PlayerMovement> winners = new List<PlayerMovement>();
 
     public static GameManager instance;
 
