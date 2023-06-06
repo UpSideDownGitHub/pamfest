@@ -35,6 +35,6 @@ public class PlayerSelectManager : MonoBehaviour
             if (!confirmed[i])
                 return;
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainScene");
     }
 }

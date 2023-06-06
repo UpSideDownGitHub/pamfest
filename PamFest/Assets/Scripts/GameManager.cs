@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
                         w++;
                     }
                     // RUN END GAME SEQUENCE
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene("EndScreen");
                     break;
                 }
             }
