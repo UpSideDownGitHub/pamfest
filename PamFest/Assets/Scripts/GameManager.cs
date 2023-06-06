@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public List<Player> winners = new List<Player>();
 
     public static GameManager instance;
+    public EnemyMovementManager enemyMovementManager;
 
     [Header("Timer")]
     public Timer timer;
@@ -138,8 +139,10 @@ public class GameManager : MonoBehaviour
     {
         endOfRound = true;
         endRunCanvas.SetActive(true);
+        enemyMovementManager.canEnemy = false;
         yield return new WaitForSeconds(waitTime);
         timer.stopTimer();
+        enemyMovementManager.canEnemy = true;
         playerFinished = false;
         endRunCanvas.SetActive(false);
         for (int i = 0; i < players.Count; i++)
@@ -150,6 +153,9 @@ public class GameManager : MonoBehaviour
                 players[i].playerMovementEnabled = true;
             }
         }
+        // update the enemy to target the new players
+        enemyMovementManager.updatePlayers();
+        enemyMovementManager.enableEnemies();
         endOfRound = false;
     }
 }

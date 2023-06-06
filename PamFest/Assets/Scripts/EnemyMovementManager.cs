@@ -15,6 +15,8 @@ public class EnemyMovementManager : MonoBehaviour
     // list of the player for the enemies to target
     public List<GameObject> players = new List<GameObject>();
 
+    public bool canEnemy = true;
+
     private void Start()
     {
         enemyAgents[0].updateRotation = false;
@@ -27,6 +29,15 @@ public class EnemyMovementManager : MonoBehaviour
 
     public void Update()
     {
+        if (!canEnemy)
+        {
+            for (int i = 0; i < enemyAgents.Count; i++)
+            {
+                enemyAgents[i].isStopped = true;
+            }
+            return;
+        }
+
         updateFollowTargets();
 
         if (players.Count == 0)
@@ -86,5 +97,13 @@ public class EnemyMovementManager : MonoBehaviour
         }
 
         updateFollowTargets();
+    }
+
+    public void enableEnemies()
+    {
+        for (int i = 0; i < enemyAgents.Count; i++)
+        {
+            enemyAgents[i].isStopped = false;
+        }
     }
 }
