@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -34,12 +35,20 @@ public class GameManager : MonoBehaviour
     public TMP_Text[] scoreTexts;
     public int[] scores = new int[4];
     public ParticleSystem[] crossedLineParticles;
+    public AudioSource source;
 
-	public AudioSource source;
+    [Header("Wave Related Systems")]
+    public int currentWave = 0;
+    public float speedIncrease;
+    public float minMusicSpeed = 0.85f;
+    public float maxMusicSpeed = 1.3f;
+    public int increaseRate;
+    public AudioSource BGMusicSource;
 
 
     private void Awake()
     {
+        currentWave = 0;
         playerFinished = false;
         instance = this;
     }
@@ -47,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BGMusicSource.pitch = minMusicSpeed;
         for (int i = 0; i < players.Count; i++)
         {
             players[i].gamepadID = i;
@@ -161,6 +171,16 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator endRound()
     {
+        // increase the current wave
+        currentWave++;
+        if (currentWave % increaseRate == 0 && BGMusicSource.pitch < maxMusicSpeed)
+        {
+            // increase the music speed
+            BGMusicSource.pitch += speedIncrease;
+        }
+        // increase the enemy speed
+        enemyMovementManager.increaseSpeedPerminant();
+
         endOfRound = true;
         endRunCanvas.SetActive(true);
         enemyMovementManager.canEnemy = false;
