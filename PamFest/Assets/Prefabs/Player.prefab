@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1650747122836029483}
   - component: {fileID: 8533294102276775097}
+  - component: {fileID: 4788667554424575759}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4788667554424575759
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175189932999970581}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ce35c7976c7b1945aba8251a67884ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1811286457398104561
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +366,8 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
   cameraAnim: {fileID: 0}
+  playerAnim: {fileID: 4788667554424575759}
+  hitEffect: {fileID: 1777972947191877128, guid: 5ac081b4e8455324e96c5318d58f77f6, type: 3}
 --- !u!50 &7553077912206042183
 Rigidbody2D:
   serializedVersion: 4

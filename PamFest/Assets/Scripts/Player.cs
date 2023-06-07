@@ -30,8 +30,33 @@ public class Player : MonoBehaviour
     public Color[] colors;
 
     public Animator cameraAnim;
+    public Animator playerAnim;
 
-    public void Movement(InputAction.CallbackContext ctx) => _vec2 = ctx.ReadValue<Vector2>();
+    public GameObject hitEffect;
+
+    public void Movement(InputAction.CallbackContext ctx)
+    {
+
+        _vec2 = ctx.ReadValue<Vector2>();
+        if (_vec2.x > 0)
+        {
+            playerAnim.SetBool("isRunningRight", true);
+            playerAnim.SetBool("isRunningLeft", false);
+            playerAnim.SetBool("isIdle", false);
+        }
+        else if (_vec2.x < 0)
+        {
+            playerAnim.SetBool("isRunningRight", false);
+            playerAnim.SetBool("isRunningLeft", true);
+            playerAnim.SetBool("isIdle", false);
+        }
+        else
+        {
+            playerAnim.SetBool("isRunningRight", false);
+            playerAnim.SetBool("isRunningLeft", false);
+            playerAnim.SetBool("isIdle", true);
+        }
+    }
 
     private void Start()
     {
@@ -63,6 +88,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Instantiate(hitEffect, collision.collider.ClosestPoint(transform.position), Quaternion.identity);
         if (collision.gameObject.CompareTag("cone"))
         {
             playerMovementDisabled = true;
@@ -77,6 +103,7 @@ public class Player : MonoBehaviour
     {
         if (playerMovementEnabled)
         {
+            Instantiate(hitEffect, collision.ClosestPoint(transform.position), Quaternion.identity);
             if (collision.CompareTag("Enemy"))
             {
                 // turn into an enemy
@@ -86,9 +113,9 @@ public class Player : MonoBehaviour
                                     
                 GameManager.instance.playersComplete[gamepadID] = 2;
                 rb.velocity = Vector2.zero;
-                GetComponent<SpriteRenderer>().color = Color.green;
                 enemyMovementManager.addNewEnemy(gameObject);
                 gameObject.tag = "Enemy";
+                ringSprite.enabled = false;
 
                 //Play anim
                 //cameraAnim.SetBool("isShaking", true);

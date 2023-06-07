@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     public float maxMusicSpeed = 1.3f;
     public int increaseRate;
     public AudioSource BGMusicSource;
+    public GameObject leftArrow;
+    public GameObject rightArrow;
 
 
     private void Awake()
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
             {
                 playersComplete[i] = 2;
                 players[i].rb.velocity = Vector2.zero;
-                players[i].GetComponent<SpriteRenderer>().color = Color.green;
+                players[i].ringSprite.enabled = false;
                 enemyMovementManager.addNewEnemy(players[i].gameObject);
                 players[i].gameObject.tag = "Enemy";
             }
@@ -181,6 +183,12 @@ public class GameManager : MonoBehaviour
         // increase the enemy speed
         enemyMovementManager.increaseSpeedPerminant();
 
+        if (movingRight)
+            rightArrow.SetActive(true);
+        else
+            leftArrow.SetActive(true);
+
+
         endOfRound = true;
         endRunCanvas.SetActive(true);
         enemyMovementManager.canEnemy = false;
@@ -204,6 +212,10 @@ public class GameManager : MonoBehaviour
         // add new cones
         coneManager.increaseConeAmmount();
         coneManager.spawnCones();
+
+        // turn of the arrows
+        rightArrow.SetActive(false);
+        leftArrow.SetActive(false);
 
         endOfRound = false;
     }

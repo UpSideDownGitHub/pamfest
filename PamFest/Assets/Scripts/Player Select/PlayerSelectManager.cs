@@ -14,7 +14,7 @@ public class PlayerSelectManager : MonoBehaviour
 
     public static PlayerSelectManager instance;
 
-    public GameObject[] countDownObjects;
+    public GameObject countDownObjects;
     public float countDownTime;
     public bool called = false;
 
@@ -47,7 +47,8 @@ public class PlayerSelectManager : MonoBehaviour
     {
         // play7e rthe animation]
         // wait for anim to finish the load the next scene
+        countDownObjects.SetActive(true);
         yield return new WaitForSeconds(1f + countDownTime);
-        SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene("MainScene");
     }
 }
