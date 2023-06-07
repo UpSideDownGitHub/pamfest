@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +31,10 @@ public class EnemyMovementManager : MonoBehaviour
 
     [Header("SPeed Increase Over Time")]
     public float speedIncrease;
+
+    [Header("Animations baby")]
+    public AnimatorController animController;
+    public List<Animator> enemyAnims = new List<Animator>();
 
 
     private void Start()
@@ -72,7 +77,31 @@ public class EnemyMovementManager : MonoBehaviour
                 timers[i] = Time.time;
                 playerToFollowID[i] = Random.Range(0, players.Count);
             }
-            
+        }
+    }
+
+    public void LateUpdate()
+    {
+        for (int i = 0; i < enemyAgents.Count; i++)
+        {
+            if (enemyAgents[i].velocity.x > 0)
+            {
+                enemyAnims[i].SetBool("runningRight", true);
+                enemyAnims[i].SetBool("runningLeft", false);
+                enemyAnims[i].SetBool("idle", false);
+            }
+            else if (enemyAgents[i].velocity.x < 0)
+            {
+                enemyAnims[i].SetBool("runningRight", false);
+                enemyAnims[i].SetBool("runningLeft", true);
+                enemyAnims[i].SetBool("idle", false);
+            }
+            else
+            {
+                enemyAnims[i].SetBool("runningRight", false);
+                enemyAnims[i].SetBool("runningLeft", false);
+                enemyAnims[i].SetBool("idle", true);
+            }
         }
     }
 
@@ -121,14 +150,21 @@ public class EnemyMovementManager : MonoBehaviour
     public void addNewEnemy(GameObject enemyToAdd)
     {
         enemyToAdd.GetComponent<BoxCollider2D>().isTrigger = true;
+        var anim = enemyToAdd.GetComponentInChildren<Animator>();
+        anim.runtimeAnimatorController = animController;
+        anim.gameObject.transform.localScale = new Vector3(1,1,1);
+        anim.gameObject.transform.position = new Vector3(anim.gameObject.transform.position.x + 0.05f, anim.gameObject.transform.position.y, anim.gameObject.transform.position.z);
         var agent = enemyToAdd.AddComponent<NavMeshAgent>();
+
         agent.speed = enemyAgents[0].speed;
         agent.radius = enemyAgents[0].radius;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
         enemyAgents.Add(agent);
         playerToFollowID.Add(0);
         timers.Add(0);
+        enemyAnims.Add(anim);
 
         updatePlayers();
     }
