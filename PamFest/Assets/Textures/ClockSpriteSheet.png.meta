@@ -172,14 +172,35 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f5ac0733392524f86489ee0fdc010e
-      internalID: -404484152
+      spriteID: fa1da170c6544e34885d41fa08adeea1
+      internalID: 1615012998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClockwiseLong
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 111
+        width: 3
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178c50b0d964f8946a17bde719f21004
+      internalID: 1489228565
       vertices: []
       indices: 
       edges: []
@@ -193,14 +214,14 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4893dc55c163e554387e5960765d56ce
-      internalID: 565525608
+      spriteID: 77efc2341e598f244bd71d089f035a02
+      internalID: 137151569
       vertices: []
       indices: 
       edges: []
@@ -214,14 +235,35 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 076056a3cd5d0b546acc10255c6db00a
-      internalID: 1829673431
+      spriteID: 0b935748aea569f4f9292313a7d25466
+      internalID: -1912152853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClockwiseShort
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 98
+        width: 3
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71b9e29e0014314184dfbb8ce174679
+      internalID: 1422306808
       vertices: []
       indices: 
       edges: []
@@ -235,14 +277,14 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2f95a006b776044dbfc5515aeaa7039
-      internalID: 407534998
+      spriteID: a92e988dfcbdbd04c8548e0dd3a8a7ee
+      internalID: 1424997459
       vertices: []
       indices: 
       edges: []
@@ -259,21 +301,14 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ClockSpriteSheet_8: 1217986926
-      ClockSpriteSheet_4: 1422306808
-      ClockSpriteSheet_2: 137151569
-      ClockSpriteSheet_13: -1170783700
-      ClockSpriteSheet_5: 1424997459
-      ClockSpriteSheet_9: -719630186
-      ClockSpriteSheet_10: -1610257281
-      ClockSpriteSheet_3: -1912152853
-      Clock1: -404484152
-      ClockSpriteSheet_11: -74578392
-      ClockSpriteSheet_12: 2068770069
-      ClockSpriteSheet_0: 1615012998
-      ClockSpriteSheet_1: 1489228565
-      Clock3: 565525608
-      Clock2: 1829673431
-      Clock4: 407534998
+      ClockSpriteSheet_7: -2094745983
+      ClockwiseLong: 1489228565
+      ClockwiseShort: 1422306808
+      Clock1: 1615012998
+      Clock3: 137151569
+      ClockSpriteSheet_6: 972123089
+      Clock2: -1912152853
+      Clock4: 1424997459
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
