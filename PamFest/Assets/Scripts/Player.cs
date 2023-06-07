@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public Animator cameraAnim;
     public Animator playerAnim;
 
+    public GameObject hitEffect;
+
     public void Movement(InputAction.CallbackContext ctx)
     {
 
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Instantiate(hitEffect, collision.collider.ClosestPoint(transform.position), Quaternion.identity);
         if (collision.gameObject.CompareTag("cone"))
         {
             playerMovementDisabled = true;
@@ -100,6 +103,7 @@ public class Player : MonoBehaviour
     {
         if (playerMovementEnabled)
         {
+            Instantiate(hitEffect, collision.ClosestPoint(transform.position), Quaternion.identity);
             if (collision.CompareTag("Enemy"))
             {
                 // turn into an enemy
