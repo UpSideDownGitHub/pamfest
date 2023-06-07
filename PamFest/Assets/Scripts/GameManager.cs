@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     private Camera cam;
     public float lerpTime;
 
+    public AudioSource finalSax;
+
 
     private void Awake()
     {
@@ -77,9 +79,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].gamepadID = i;
-            scoreObjects[i].SetActive(true);
-            scoreTexts[i].text = "0";
             scores[i] = 0;
+            scoreTexts[i].text = "0";
         }
     }
 
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             cam.transform.position = Vector3.Lerp(cam.transform.position, playerPosition, lerpTime);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, minCameraValue, lerpTime);
-            print("TIME: " + Time.time + "\n GAME END: " + _gameSinceGameEnd);
+            
             if (Time.time > _gameSinceGameEnd)
                 SceneManager.LoadScene("EndScreen");
             return;
@@ -188,6 +189,7 @@ public class GameManager : MonoBehaviour
             playerPosition = new Vector3(playerPosition.x, playerPosition.y, cam.transform.position.z);
             _gameSinceGameEnd = Time.time + gameEndTime;
             BGMusicSource.Stop();
+            finalSax.Play();
             return;
         }
 
@@ -228,6 +230,13 @@ public class GameManager : MonoBehaviour
         enemyMovementManager.canEnemy = false;
 	    source.Play();
         timer.stopTimer();
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            scoreObjects[i].SetActive(true);
+        }
+
+
         yield return new WaitForSeconds(waitTime);
         enemyMovementManager.canEnemy = true;
         playerFinished = false;
@@ -250,6 +259,12 @@ public class GameManager : MonoBehaviour
         // turn of the arrows
         rightArrow.SetActive(false);
         leftArrow.SetActive(false);
+
+        // turn off score
+        for (int i = 0; i < players.Count; i++)
+        {
+            scoreObjects[i].SetActive(false);
+        }
 
         endOfRound = false;
     }

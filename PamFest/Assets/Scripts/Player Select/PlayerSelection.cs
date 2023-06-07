@@ -20,16 +20,19 @@ public class PlayerSelection : MonoBehaviour
     public GameObject audioManager;
     private PlayerAnnouncements playerAnnouncements;
 
+    public bool selected;
+
     public void Awake()
     {
         totalPlayers = players.Length;
         currentShownPlayer.sprite = players[currentPlayer];
-
         playerAnnouncements = audioManager.GetComponent<PlayerAnnouncements>();
     }
 
     public void Next(InputAction.CallbackContext ctx)
     {
+        if (selected)
+            return;
         if (ctx.started)
         {
             if (currentPlayer + 1 > totalPlayers - 1)
@@ -41,6 +44,8 @@ public class PlayerSelection : MonoBehaviour
     }
     public void Previous(InputAction.CallbackContext ctx)
     {
+        if (selected)
+            return;
         if (ctx.started)
         {
             if (currentPlayer - 1 < 0)
@@ -56,6 +61,8 @@ public class PlayerSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("Player " + currentControllerID.ToString(), currentPlayer);
         PlayerSelectManager.instance.confirmed[currentControllerID] = true;
+
+        selected = true;
 
         playerAnnouncements.OnPlayerSelect(currentPlayer);
 
