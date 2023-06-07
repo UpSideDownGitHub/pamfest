@@ -25,11 +25,19 @@ public class Player : MonoBehaviour
     [Header("Gamepad Support")]
     public int gamepadID;
 
+    [Header("Player Ring")]
+    public SpriteRenderer ringSprite;
+    public Color[] colors;
+
+    public Animator cameraAnim;
+
     public void Movement(InputAction.CallbackContext ctx) => _vec2 = ctx.ReadValue<Vector2>();
 
     private void Start()
     {
         enemyMovementManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyMovementManager>();
+        cameraAnim = Camera.main.gameObject.GetComponent<Animator>();
+        ringSprite.color = colors[gamepadID];
     }
 
     // Update is called once per frame
@@ -72,11 +80,18 @@ public class Player : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 // turn into an enemy
+                
+                cameraAnim.Play("CameraShakeAnim");
+                print("work");
+                                    
                 GameManager.instance.playersComplete[gamepadID] = 2;
                 rb.velocity = Vector2.zero;
                 GetComponent<SpriteRenderer>().color = Color.green;
                 enemyMovementManager.addNewEnemy(gameObject);
                 gameObject.tag = "Enemy";
+
+                //Play anim
+                //cameraAnim.SetBool("isShaking", true);
             }
             if (collision.CompareTag("Left"))
             {

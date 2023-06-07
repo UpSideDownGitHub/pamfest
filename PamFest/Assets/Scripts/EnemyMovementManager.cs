@@ -28,6 +28,9 @@ public class EnemyMovementManager : MonoBehaviour
     public float speedMultiplier;
     public float accelMultiplier;
 
+    [Header("SPeed Increase Over Time")]
+    public float speedIncrease;
+
 
     private void Start()
     {
@@ -142,6 +145,15 @@ public class EnemyMovementManager : MonoBehaviour
         }
 
         updateFollowTargets();
+    }
+
+    public void increaseSpeedPerminant()
+    {
+        baseSpeed += speedIncrease;
+        foreach (var enemy in enemyAgents)
+        {
+            enemy.speed = baseSpeed;
+        }
     }
 
     IEnumerator increaseSpeed(int ID)
