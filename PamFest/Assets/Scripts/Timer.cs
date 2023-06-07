@@ -37,9 +37,14 @@ public class Timer : MonoBehaviour
             // sets the time to be in the correct format for the game
             timerText.text = string.Format("{0:00}:{1:00}", sec, min);
 
+            if (min <= 5)
+            {
+                objects[2].GetComponent<Animator>().SetBool("New Bool", true);
+            }
             if (min <= 0)
             {
                 // end the game
+                objects[2].GetComponent<Animator>().SetBool("New Bool", false);
                 gameManager.endRoundTime();
             }
         }
@@ -49,6 +54,7 @@ public class Timer : MonoBehaviour
     {
         objects[0].SetActive(true);
         objects[1].SetActive(true);
+        objects[2].SetActive(true);
         startTime = Time.time;
         run = true;
     }
@@ -57,6 +63,7 @@ public class Timer : MonoBehaviour
     {
         objects[0].SetActive(false);
         objects[1].SetActive(false);
+        objects[2].SetActive(false);
         timerText.text = "00:10";
         startTime = Time.time;
         run = false;

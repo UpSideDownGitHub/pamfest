@@ -47,9 +47,23 @@ public class GameManager : MonoBehaviour
     public GameObject leftArrow;
     public GameObject rightArrow;
 
+    // thunder effect
+    public float thunderRound;
+    public GameObject thunderObject;
+
+    [Header("End Sequence")]
+    public bool gameEnded;
+    public float minCameraValue;
+    public Vector3 playerPosition;
+    public float gameEndTime;
+    private float _gameSinceGameEnd;
+    private Camera cam;
+    public float lerpTime;
+
 
     private void Awake()
     {
+        gameEnded = false;
         currentWave = 0;
         playerFinished = false;
         instance = this;
@@ -58,6 +72,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         BGMusicSource.pitch = minMusicSpeed;
         for (int i = 0; i < players.Count; i++)
         {
@@ -103,6 +118,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameEnded)
+        {
+            Time.timeScale = 1;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, playerPosition, lerpTime);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, minCameraValue, lerpTime);
+            print("TIME: " + Time.time + "\n GAME END: " + _gameSinceGameEnd);
+            if (Time.time > _gameSinceGameEnd)
+                SceneManager.LoadScene("EndScreen");
+            return;
+        }
         if (endOfRound)
             return;
 
@@ -157,7 +182,13 @@ public class GameManager : MonoBehaviour
                 w++;
             }
             // RUN END GAME SEQUENCE
-            SceneManager.LoadScene("EndScreen");
+            gameEnded = true;
+            winners[winners.Count - 1].rb.velocity = Vector2.zero;
+            playerPosition = winners[winners.Count - 1].transform.position;
+            playerPosition = new Vector3(playerPosition.x, playerPosition.y, cam.transform.position.z);
+            _gameSinceGameEnd = Time.time + gameEndTime;
+            BGMusicSource.Stop();
+            return;
         }
 
         if (finishedRound)
@@ -182,6 +213,9 @@ public class GameManager : MonoBehaviour
         }
         // increase the enemy speed
         enemyMovementManager.increaseSpeedPerminant();
+
+        if (currentWave == thunderRound)
+            thunderObject.SetActive(true);
 
         if (movingRight)
             rightArrow.SetActive(true);

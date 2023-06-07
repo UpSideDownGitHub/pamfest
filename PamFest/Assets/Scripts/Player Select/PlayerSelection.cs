@@ -17,8 +17,6 @@ public class PlayerSelection : MonoBehaviour
     public GameObject ready;
     public GameObject confirmButton;
 
-    public Color playerColour;
-
     public GameObject audioManager;
     private PlayerAnnouncements playerAnnouncements;
 
@@ -66,7 +64,5 @@ public class PlayerSelection : MonoBehaviour
 
         ready.SetActive(true);
         confirmButton.SetActive(false);
-
-        ready.GetComponent<Image>().color = playerColour;
     }
 }

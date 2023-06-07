@@ -34,8 +34,12 @@ public class Player : MonoBehaviour
 
     public GameObject hitEffect;
 
+    public AudioSource caughtEffect;
+    public AudioSource coneImpact;
+
     public void Movement(InputAction.CallbackContext ctx)
     {
+        if (!CountDown.instance.canStart || enemyMovementManager.gameManager.gameEnded) return;
 
         _vec2 = ctx.ReadValue<Vector2>();
         if (_vec2.x > 0)
@@ -68,6 +72,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!CountDown.instance.canStart || enemyMovementManager.gameManager.gameEnded) return;
         if (playerMovementDisabled && Time.time > disableTime + timeSinceDisable)
         {
             playerMovementDisabled = false;
@@ -88,9 +93,12 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!CountDown.instance.canStart || enemyMovementManager.gameManager.gameEnded) return;
         Instantiate(hitEffect, collision.collider.ClosestPoint(transform.position), Quaternion.identity);
         if (collision.gameObject.CompareTag("cone"))
         {
+            coneImpact.Play();
+
             playerMovementDisabled = true;
             rb.velocity = Vector2.zero;
             timeSinceDisable = Time.time;
@@ -101,6 +109,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!CountDown.instance.canStart || enemyMovementManager.gameManager.gameEnded) return;
         if (playerMovementEnabled)
         {
             Instantiate(hitEffect, collision.ClosestPoint(transform.position), Quaternion.identity);
@@ -116,6 +125,8 @@ public class Player : MonoBehaviour
                 enemyMovementManager.addNewEnemy(gameObject);
                 gameObject.tag = "Enemy";
                 ringSprite.enabled = false;
+
+                caughtEffect.Play();
 
                 //Play anim
                 //cameraAnim.SetBool("isShaking", true);

@@ -35,6 +35,8 @@ public class EnemyMovementManager : MonoBehaviour
     public Animator animController;
     public List<Animator> enemyAnims = new List<Animator>();
 
+    public GameManager gameManager;
+
 
     private void Start()
     {
@@ -50,6 +52,18 @@ public class EnemyMovementManager : MonoBehaviour
 
     public void Update()
     {
+        if (gameManager.gameEnded)
+        {
+            foreach (var item in enemyAgents)
+            {
+                item.gameObject.SetActive(false);
+            }
+            return;
+        }
+        if (!CountDown.instance.canStart)
+        { 
+            return;
+        }
         if (!canEnemy)
         {
             for (int i = 0; i < enemyAgents.Count; i++)
@@ -81,6 +95,19 @@ public class EnemyMovementManager : MonoBehaviour
 
     public void LateUpdate()
     {
+        if (gameManager.gameEnded)
+        {
+            foreach (var item in enemyAgents)
+            {
+                item.gameObject.SetActive(false);
+            }
+            return;
+        }
+        if (!CountDown.instance.canStart)
+        {
+            
+            return;
+        }
         for (int i = 0; i < enemyAgents.Count; i++)
         {
             if (enemyAgents[i].velocity.x > 0)

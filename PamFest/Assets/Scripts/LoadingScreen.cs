@@ -14,7 +14,7 @@ public class LoadingScreen : MonoBehaviour
             IEnumerator LoadDone()
             {
                 yield return new WaitForSeconds(5f);
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("CharacterSelect");
             }
 
         
