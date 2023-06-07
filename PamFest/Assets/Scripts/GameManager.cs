@@ -180,7 +180,6 @@ public class GameManager : MonoBehaviour
         }
         // update the enemy to target the new players
         enemyMovementManager.updatePlayers();
-        enemyMovementManager.enableEnemies();
 
         // add new cones
         coneManager.increaseConeAmmount();

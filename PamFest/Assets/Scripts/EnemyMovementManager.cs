@@ -20,6 +20,7 @@ public class EnemyMovementManager : MonoBehaviour
     public bool canEnemy = true;
 
     [Header("More Advanced AI")]
+    public Vector3 center;
     public float minDistanceToDemandFollow;
     public float speedIncreaseTime;
     public float baseSpeed;
@@ -46,7 +47,7 @@ public class EnemyMovementManager : MonoBehaviour
         {
             for (int i = 0; i < enemyAgents.Count; i++)
             {
-                enemyAgents[i].isStopped = true;
+                enemyAgents[i].SetDestination(center);
             }
             return;
         }
@@ -141,14 +142,6 @@ public class EnemyMovementManager : MonoBehaviour
         }
 
         updateFollowTargets();
-    }
-
-    public void enableEnemies()
-    {
-        for (int i = 0; i < enemyAgents.Count; i++)
-        {
-            enemyAgents[i].isStopped = false;
-        }
     }
 
     IEnumerator increaseSpeed(int ID)
