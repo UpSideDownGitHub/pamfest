@@ -12,8 +12,12 @@ public class PlayerSelection : MonoBehaviour
     public int currentPlayer = 0;
     public int currentControllerID;
 
-    public GameObject playerBody;
-    public GameObject playerHead;
+    public Animator playerBody;
+    public Animator playerHead;
+    public GameObject ready;
+    public GameObject confirmButton;
+
+    public Color playerColour;
 
     public GameObject audioManager;
     private PlayerAnnouncements playerAnnouncements;
@@ -57,7 +61,12 @@ public class PlayerSelection : MonoBehaviour
 
         playerAnnouncements.OnPlayerSelect(currentPlayer);
 
-        playerBody.GetComponent<Animator>().SetTrigger("Selected");
-        playerHead.GetComponent<Animator>().SetTrigger("Selected");
+        playerBody.SetTrigger("Selected");
+        playerHead.SetTrigger("Selected");
+
+        ready.SetActive(true);
+        confirmButton.SetActive(false);
+
+        ready.GetComponent<Image>().color = playerColour;
     }
 }
