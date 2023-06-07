@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d22e65c59709e2d469deb03adfc48a5a
+guid: 9f64c5a2516e6f84ab297bca60b15872
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -162,133 +162,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Clock1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 85
-        width: 45
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa1da170c6544e34885d41fa08adeea1
-      internalID: 1615012998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ClockwiseLong
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 111
-        width: 3
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 178c50b0d964f8946a17bde719f21004
-      internalID: 1489228565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Clock3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 85
-        width: 45
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77efc2341e598f244bd71d089f035a02
-      internalID: 137151569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Clock2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 41
-        width: 45
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b935748aea569f4f9292313a7d25466
-      internalID: -1912152853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ClockwiseShort
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 98
-        width: 3
-        height: 12
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c71b9e29e0014314184dfbb8ce174679
-      internalID: 1422306808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Clock4
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 41
-        width: 45
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a92e988dfcbdbd04c8548e0dd3a8a7ee
-      internalID: 1424997459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -299,16 +173,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ClockSpriteSheet_8: 1217986926
-      ClockSpriteSheet_7: -2094745983
-      ClockwiseLong: 1489228565
-      ClockwiseShort: 1422306808
-      Clock1: 1615012998
-      Clock3: 137151569
-      ClockSpriteSheet_6: 972123089
-      Clock2: -1912152853
-      Clock4: 1424997459
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

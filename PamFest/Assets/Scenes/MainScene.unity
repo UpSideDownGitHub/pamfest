@@ -8033,6 +8033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006076302}
   - component: {fileID: 1006076303}
+  - component: {fileID: 1006076304}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -8095,7 +8096,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 29
   m_Sprite: {fileID: 848637863, guid: e31cf047835ff3643bafd14cd90499ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8107,6 +8108,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1006076304
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006076301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 241c9d6b47a65634c925f7fd9d5c3ff3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1034419376
 GameObject:
   m_ObjectHideFlags: 0
@@ -16189,6 +16210,9 @@ MonoBehaviour:
   speedMultiplier: 1.5
   accelMultiplier: 1.5
   speedIncrease: 0.1
+  animController: {fileID: 9100000, guid: 241c9d6b47a65634c925f7fd9d5c3ff3, type: 2}
+  enemyAnims:
+  - {fileID: 1006076304}
 --- !u!4 &2102299356
 Transform:
   m_ObjectHideFlags: 0
