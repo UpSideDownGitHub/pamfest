@@ -9,6 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("SINGLE PLAYER")]
+    public bool SINGLEPLAYER;
+
+    [Header("-----------------------")]
     public bool movingRight = true;
     public List<Player> players = new List<Player>();
     public int[] playersComplete = new int[4]; // 0 = Running, 1 = Completed, 2 = Eaten
@@ -92,9 +96,12 @@ public class GameManager : MonoBehaviour
             {
                 playersComplete[i] = 2;
                 players[i].rb.velocity = Vector2.zero;
-                players[i].ringSprite.enabled = false;
-                enemyMovementManager.addNewEnemy(players[i].gameObject);
-                players[i].gameObject.tag = "Enemy";
+                if (!SINGLEPLAYER)
+                {
+                    players[i].ringSprite.enabled = false;
+                    enemyMovementManager.addNewEnemy(players[i].gameObject);
+                    players[i].gameObject.tag = "Enemy";
+                }
             }
         }
     }
@@ -113,7 +120,6 @@ public class GameManager : MonoBehaviour
             timer.startTimer();
             playerFinished = true;
         }
-
     }
 
     // Update is called once per frame
@@ -124,13 +130,27 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             cam.transform.position = Vector3.Lerp(cam.transform.position, playerPosition, lerpTime);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, minCameraValue, lerpTime);
-            
+
             if (Time.time > _gameSinceGameEnd)
-                SceneManager.LoadScene("EndScreen");
+            { 
+                if (SINGLEPLAYER)
+                    SceneManager.LoadScene("MainMenu");
+                else
+                    SceneManager.LoadScene("EndScreen"); 
+            }
             return;
         }
         if (endOfRound)
             return;
+
+        if (SINGLEPLAYER)
+        {
+            if (!playerFinished && CountDown.instance.canStart)
+            {
+                timer.startTimer();
+                playerFinished = true;
+            }
+        }
 
         // check for the end of the round
         bool finishedRound = true;
@@ -160,7 +180,7 @@ public class GameManager : MonoBehaviour
                 playersLeft--;
             }
         }
-        if (playersLeft <= 1)
+        if ((playersLeft <= 1 && !SINGLEPLAYER) || (playersLeft == 0 && SINGLEPLAYER))
         {
             // end the game
             Time.timeScale = 0f;
@@ -183,6 +203,14 @@ public class GameManager : MonoBehaviour
                 w++;
             }
             // RUN END GAME SEQUENCE
+            if (SINGLEPLAYER)
+            {
+                for (int i = 0; i < players.Count; i++)
+                {
+                    scoreObjects[i].SetActive(true);
+                }
+            }
+
             gameEnded = true;
             winners[winners.Count - 1].rb.velocity = Vector2.zero;
             playerPosition = winners[winners.Count - 1].transform.position;

@@ -8,6 +8,11 @@ using UnityEngine.AI;
 
 public class EnemyMovementManager : MonoBehaviour
 {
+    [Header("SINGLE PLAYER")]
+    public bool SINGLEPLAYER;
+
+    [Header("-----------------------")]
+
     [Header("Navigation")]
     public List<NavMeshAgent> enemyAgents = new List<NavMeshAgent>();
     public List<int> playerToFollowID = new List<int>();
@@ -40,6 +45,16 @@ public class EnemyMovementManager : MonoBehaviour
 
     private void Start()
     {
+        if (SINGLEPLAYER)
+        {
+            for (int i = 0; i < enemyAgents.Count; i++)
+            {
+                enemyAgents[i].updateRotation = false;
+                enemyAgents[i].updateUpAxis = false;
+                baseSpeed = enemyAgents[i].speed;
+                baseAccel = enemyAgents[i].acceleration;
+            }
+        }
         enemyAgents[0].updateRotation = false;
         enemyAgents[0].updateUpAxis = false;
         baseSpeed = enemyAgents[0].speed;

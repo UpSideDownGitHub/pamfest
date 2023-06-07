@@ -7,6 +7,11 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    [Header("SINGLE PLAYER")]
+    public bool SINGLEPLAYER;
+
+    [Header("-----------------------")]
+
     public Vector2 _vec2;
     public Rigidbody2D rb;
     public float movementSpeed;
@@ -68,7 +73,8 @@ public class Player : MonoBehaviour
     {
         enemyMovementManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyMovementManager>();
         cameraAnim = Camera.main.gameObject.GetComponent<Animator>();
-        ringSprite.color = colors[gamepadID];
+        if (!SINGLEPLAYER)
+            ringSprite.color = colors[gamepadID];
     }
 
     // Update is called once per frame
@@ -124,14 +130,22 @@ public class Player : MonoBehaviour
                                     
                 GameManager.instance.playersComplete[gamepadID] = 2;
                 rb.velocity = Vector2.zero;
-                enemyMovementManager.addNewEnemy(gameObject);
-                gameObject.tag = "Enemy";
-                ringSprite.enabled = false;
 
-                caughtEffect.Play();
-
-                Instantiate(caughtObject, transform);
-
+                if (!SINGLEPLAYER)
+                {
+                    enemyMovementManager.addNewEnemy(gameObject);
+                    gameObject.tag = "Enemy";
+                    ringSprite.enabled = false;
+                    caughtEffect.Play();
+                    Instantiate(caughtObject, transform);
+                }
+                else
+                {
+                    caughtEffect.Play();
+                    Instantiate(caughtObject, transform.position, Quaternion.identity);
+                }
+                
+                
                 //Play anim
                 //cameraAnim.SetBool("isShaking", true);
             }

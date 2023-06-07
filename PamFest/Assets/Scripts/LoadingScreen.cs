@@ -7,22 +7,25 @@ using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool singlePlayer;
     void Start()
     {
         StartCoroutine(LoadDone());
 
-            IEnumerator LoadDone()
-            {
-                yield return new WaitForSeconds(5f);
+        IEnumerator LoadDone()
+        {
+            yield return new WaitForSeconds(5f);
+            if (!singlePlayer)
                 SceneManager.LoadScene("CharacterSelect");
-            }
+            else
+                SceneManager.LoadScene("Single Player");
+        }
 
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
