@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             {
                 playersComplete[i] = 2;
                 players[i].rb.velocity = Vector2.zero;
-                players[i].GetComponent<SpriteRenderer>().color = Color.green;
+                players[i].ringSprite.enabled = false;
                 enemyMovementManager.addNewEnemy(players[i].gameObject);
                 players[i].gameObject.tag = "Enemy";
             }
