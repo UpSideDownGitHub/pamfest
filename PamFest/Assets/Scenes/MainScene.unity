@@ -16485,7 +16485,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   accelMultiplier: 1.5
   speedIncrease: 0.1
-  animController: {fileID: 9100000, guid: 241c9d6b47a65634c925f7fd9d5c3ff3, type: 2}
+  animController: {fileID: 1006076304}
   enemyAnims:
   - {fileID: 1006076304}
 --- !u!4 &2102299356

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -33,7 +32,7 @@ public class EnemyMovementManager : MonoBehaviour
     public float speedIncrease;
 
     [Header("Animations baby")]
-    public AnimatorController animController;
+    public Animator animController;
     public List<Animator> enemyAnims = new List<Animator>();
 
 
@@ -151,7 +150,7 @@ public class EnemyMovementManager : MonoBehaviour
     {
         enemyToAdd.GetComponent<BoxCollider2D>().isTrigger = true;
         var anim = enemyToAdd.GetComponentInChildren<Animator>();
-        anim.runtimeAnimatorController = animController;
+        anim.runtimeAnimatorController = animController.runtimeAnimatorController;
         anim.gameObject.transform.localScale = new Vector3(1,1,1);
         anim.gameObject.transform.position = new Vector3(anim.gameObject.transform.position.x + 0.05f, anim.gameObject.transform.position.y, anim.gameObject.transform.position.z);
         var agent = enemyToAdd.AddComponent<NavMeshAgent>();
