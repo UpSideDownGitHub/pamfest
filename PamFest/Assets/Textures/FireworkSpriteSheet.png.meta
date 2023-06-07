@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: f90f5e22e7296964dbbec4af047cd4e7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 138
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b1cfbdebf854b4d880d2e484059944
+      internalID: -1538878033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 128
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e405859b0fef944881081e91804684
+      internalID: 564623930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 132
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6aa85c18ed40d4fb59f2200b8fb9fe
+      internalID: 2041186104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 77
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9a4fb5492b09047a6c860abca5b1dc
+      internalID: 1080913767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 74
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb599323e82d1e947960edbe5b46652d
+      internalID: -25059546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 80
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f381e663614ab49a296107f90aff15
+      internalID: -1040963358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 92
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac0f0fcfc1cf5e4dabf176af64a8551
+      internalID: -170237329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39da73ac389d9954fa2f51e7c7117c5a
+      internalID: 292995891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireworkSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279ca17704f186d48a3c5583b1125dc0
+      internalID: 982644665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FireworkSpriteSheet_4: 982644665
+      FireworkSpriteSheet_57: -1372524425
+      FireworkSpriteSheet_47: -1449832752
+      FireworkSpriteSheet_55: -1048571430
+      FireworkSpriteSheet_56: 1368270374
+      FireworkSpriteSheet_1: 564623930
+      FireworkSpriteSheet_58: -222895986
+      FireworkSpriteSheet_38: 424380357
+      FireworkSpriteSheet_41: 1747130761
+      FireworkSpriteSheet_29: 652620268
+      FireworkSpriteSheet_44: 1736770224
+      FireworkSpriteSheet_48: 483737686
+      FireworkSpriteSheet_52: -1711714241
+      FireworkSpriteSheet_9: -1706834843
+      FireworkSpriteSheet_11: 1928432168
+      FireworkSpriteSheet_40: 292995891
+      FireworkSpriteSheet_46: -1168452722
+      FireworkSpriteSheet_6: -1040963358
+      FireworkSpriteSheet_16: -36244861
+      FireworkSpriteSheet_25: -1561427726
+      FireworkSpriteSheet_54: 1800606029
+      FireworkSpriteSheet_23: -929601728
+      FireworkSpriteSheet_35: -1881439172
+      FireworkSpriteSheet_18: 1498863986
+      FireworkSpriteSheet_36: 288132237
+      FireworkSpriteSheet_17: 1426680545
+      FireworkSpriteSheet_45: 1257588773
+      FireworkSpriteSheet_39: -642796276
+      FireworkSpriteSheet_5: -25059546
+      FireworkSpriteSheet_32: -1488466049
+      FireworkSpriteSheet_2: 2041186104
+      FireworkSpriteSheet_24: -484457785
+      FireworkSpriteSheet_33: -9110780
+      FireworkSpriteSheet_43: 1622230569
+      FireworkSpriteSheet_20: -170237329
+      FireworkSpriteSheet_14: -943357372
+      FireworkSpriteSheet_34: 645581450
+      FireworkSpriteSheet_27: 2106338684
+      FireworkSpriteSheet_51: -1727536644
+      FireworkSpriteSheet_15: -1671523436
+      FireworkSpriteSheet_21: 1421107870
+      FireworkSpriteSheet_30: -1132396483
+      FireworkSpriteSheet_42: 1989884292
+      FireworkSpriteSheet_8: -1129008038
+      FireworkSpriteSheet_49: 695007796
+      FireworkSpriteSheet_22: -229193065
+      FireworkSpriteSheet_50: -1381585237
+      FireworkSpriteSheet_7: -1643225835
+      FireworkSpriteSheet_31: 634740374
+      FireworkSpriteSheet_10: 1988818083
+      FireworkSpriteSheet_12: -397369226
+      FireworkSpriteSheet_26: -496208433
+      FireworkSpriteSheet_53: 344902791
+      FireworkSpriteSheet_3: 1080913767
+      FireworkSpriteSheet_37: -1400843852
+      FireworkSpriteSheet_28: 1664775987
+      FireworkSpriteSheet_13: -1765074749
+      FireworkSpriteSheet_19: -699594137
+      FireworkSpriteSheet_0: -1538878033
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
