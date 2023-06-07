@@ -25,8 +25,11 @@ public class Player : MonoBehaviour
     [Header("Gamepad Support")]
     public int gamepadID;
 
+    [Header("Player Ring")]
+    public SpriteRenderer ringSprite;
+    public Color[] colors;
+
     public Animator cameraAnim;
-    
 
     public void Movement(InputAction.CallbackContext ctx) => _vec2 = ctx.ReadValue<Vector2>();
 
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
     {
         enemyMovementManager = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemyMovementManager>();
         cameraAnim = Camera.main.gameObject.GetComponent<Animator>();
+        ringSprite.color = colors[gamepadID];
     }
 
     // Update is called once per frame
