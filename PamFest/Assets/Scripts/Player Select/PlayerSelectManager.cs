@@ -14,6 +14,10 @@ public class PlayerSelectManager : MonoBehaviour
 
     public static PlayerSelectManager instance;
 
+    public GameObject[] countDownObjects;
+    public float countDownTime;
+    public bool called = false;
+
     void Awake()
     {
         instance = this;
@@ -36,14 +40,14 @@ public class PlayerSelectManager : MonoBehaviour
             if (!confirmed[i])
                 return;
         }
-
-        StartCoroutine (AfterSelect());
-
-        IEnumerator AfterSelect()
-        {
-            yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("Loading");
-        }
-        
+        if (!called)
+            StartCoroutine (AfterSelect());
+    }
+    public IEnumerator AfterSelect()
+    {
+        // play7e rthe animation]
+        // wait for anim to finish the load the next scene
+        yield return new WaitForSeconds(1f + countDownTime);
+        SceneManager.LoadScene("Loading");
     }
 }
