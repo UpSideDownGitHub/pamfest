@@ -7016,7 +7016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678216533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6788, y: 6.54, z: -0.02187579}
+  m_LocalPosition: {x: -3.7, y: 6.9, z: -0.02187579}
   m_LocalScale: {x: 23.36853, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7428,7 +7428,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 2.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -8196,6 +8196,7 @@ GameObject:
   - component: {fileID: 1036852260}
   - component: {fileID: 1036852259}
   - component: {fileID: 1036852262}
+  - component: {fileID: 1036852263}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8329,6 +8330,26 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!95 &1036852263
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036852258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 301e0e7051208ed4b82c2179f7ce0715, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1056053332
 GameObject:
   m_ObjectHideFlags: 0
@@ -16167,7 +16188,7 @@ MonoBehaviour:
   baseAccel: 0
   speedMultiplier: 1.5
   accelMultiplier: 1.5
-  speedIncrease: 0.25
+  speedIncrease: 0.1
 --- !u!4 &2102299356
 Transform:
   m_ObjectHideFlags: 0
