@@ -372,6 +372,7 @@ MonoBehaviour:
   hitEffect: {fileID: 1777972947191877128, guid: 5ac081b4e8455324e96c5318d58f77f6, type: 3}
   caughtEffect: {fileID: 3405574970558324100}
   coneImpact: {fileID: 3813791583315108864}
+  caughtObject: {fileID: 6231417278065878403, guid: 45a384a155ffebd418df336d236d142f, type: 3}
 --- !u!50 &7553077912206042183
 Rigidbody2D:
   serializedVersion: 4

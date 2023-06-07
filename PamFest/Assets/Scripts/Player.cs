@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public AudioSource caughtEffect;
     public AudioSource coneImpact;
 
+    public GameObject caughtObject;
+
     public void Movement(InputAction.CallbackContext ctx)
     {
         if (!CountDown.instance.canStart || enemyMovementManager.gameManager.gameEnded) return;
@@ -127,6 +129,8 @@ public class Player : MonoBehaviour
                 ringSprite.enabled = false;
 
                 caughtEffect.Play();
+
+                Instantiate(caughtObject, transform);
 
                 //Play anim
                 //cameraAnim.SetBool("isShaking", true);

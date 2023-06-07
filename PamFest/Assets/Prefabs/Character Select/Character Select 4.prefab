@@ -737,7 +737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Confirm
+  m_text: 'CONFIRM
 
 '
   m_isRightToLeft: 0
@@ -1197,6 +1197,7 @@ MonoBehaviour:
   ready: {fileID: 954167858302526857}
   confirmButton: {fileID: 8901135382105297092}
   audioManager: {fileID: 5834659641246326042}
+  selected: 0
 --- !u!1001 &2507448628934932050
 PrefabInstance:
   m_ObjectHideFlags: 0

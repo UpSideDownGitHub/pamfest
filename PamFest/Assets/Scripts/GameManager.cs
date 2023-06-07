@@ -190,6 +190,8 @@ public class GameManager : MonoBehaviour
             _gameSinceGameEnd = Time.time + gameEndTime;
             BGMusicSource.Stop();
             finalSax.Play();
+            timer.objects[0].SetActive(false);
+            timer.objects[1].SetActive(false);
             return;
         }
 
